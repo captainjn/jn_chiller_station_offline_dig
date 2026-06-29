@@ -69,7 +69,7 @@ def save_project_data(project_info):
 
     # 2. 保存到工作区 (app_data.json)，供其他页面读取
     try:
-        with open(WORKSPACE_DEF_FILE, 'w', encoding='utf-8') as f:
+        with open(WORKSPACE_FILE, 'w', encoding='utf-8') as f:
             json.dump({"project_info": project_info}, f, ensure_ascii=False, indent=4)
         # 更新 Session State
         if 'app_data' in st.session_state:
@@ -85,7 +85,8 @@ def delete_project(project_name):
     file_path = DATA_DIR / f"{project_name}_info.json"
     if file_path.exists():
         try:
-            os.remove(file_path)
+            # os.remove(file_path)
+            file_path.unlink()
             st.success(f"🗑️ 项目 [{project_name}] 已删除")
             # 如果删除的是当前加载的项目，清空工作区
             if st.session_state.get('current_project_name') == project_name:
