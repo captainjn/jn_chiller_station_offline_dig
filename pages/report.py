@@ -101,6 +101,7 @@ def render():
             # 调用生成器
             # 注意：这里传入的数据结构需要和 ReportGenerator 期望的格式一致
             pdf_bytes = ReportGenerator.generate_pdf_report(project_info, audit_results)
+            print(f"PDF Data Type: {type(pdf_bytes)}")
             st.download_button(
                 label="⬇️ 下载 PDF",
                 data=pdf_bytes,

@@ -118,10 +118,12 @@ class ReportGenerator:
         # 如果是字符串，按 Latin-1 编码转为 bytes
         if isinstance(pdf_data, str):
             return pdf_data.encode('latin-1')
-
-        # 如果已经是 bytes，直接返回
-        return pdf_data
-
+        elif isinstance(pdf_data, bytearray):
+                   # 如果意外得到了 bytearray，转换为 bytes
+                   return bytes(pdf_data)
+        else:
+                    # 确保返回的是 bytes
+                    return bytes(pdf_data)
     @staticmethod
     def generate_excel_report(all_data: dict) -> bytes:
         """
