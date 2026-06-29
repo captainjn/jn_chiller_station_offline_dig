@@ -112,12 +112,15 @@ class ReportGenerator:
             pdf.cell(0, 8, "系统运行良好，无重大改进项。", ln=True)
 
         # 输出为字节流
-        # return pdf.output(dest='S').encode('utf-8')
-        # return bytes(pdf.output(dest='S'), 'latin-1')
-        pdf_bytes = pdf.output(dest='S')
-        if isinstance(pdf_bytes, str):
-            return pdf_bytes.encode('latin-1')  # 只有在返回字符串时才尝试编码
-        return pdf_bytes  # 如果已经是 bytes，直接返回
+        # fpdf 的 output 方法在某些情况下返回 str (Latin-1)，需要转为 bytes
+        pdf_data = pdf.output(dest='S')
+
+        # 如果是字符串，按 Latin-1 编码转为 bytes
+        if isinstance(pdf_data, str):
+            return pdf_data.encode('latin-1')
+
+        # 如果已经是 bytes，直接返回
+        return pdf_data
 
     @staticmethod
     def generate_excel_report(all_data: dict) -> bytes:
