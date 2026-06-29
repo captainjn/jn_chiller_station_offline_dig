@@ -9,7 +9,9 @@ import pandas as pd
 import os
 import json
 from core.calculator import adapt_and_calculate, ProjectType
-DATA_FILE = "app_data.json"
+# DATA_FILE = "app_data.json"
+DATA_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "app_data.json")
+
 def render():
     st.title("📈 系统能效评估结果")
     # --- 新增：顶部返回按钮 ---

@@ -3,10 +3,17 @@ import streamlit as st
 from utils.report_generator import ReportGenerator
 from datetime import datetime
 import os
+import json
+# --- 【新增】定义获取项目根目录的函数 ---
+def get_project_root():
+    # 获取当前文件(__file__)的绝对路径，然后向上两级（项目根目录）
+    # __file__ 指当前文件(report.py), dirname 一次到 pages, 再 dirname 一次到项目根
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def render():
     st.title("📑 节能评估报告生成")
     print("【DEBUG】当前工作目录 (CWD):", os.getcwd())
     print("【DEBUG】当前目录下的文件列表:", os.listdir())
+
     # --- 4. 导航 ---
     if st.button("⬅️ 返回上一页"):
         st.session_state.page = "audit_result"
@@ -19,7 +26,27 @@ def render():
     app_data = st.session_state.get('app_data', {})
 
     # 从 app_data 中提取具体对象
-    # 注意：你的数据结构中，项目基本信息在顶层，而 audit_results 在 app_data 下
+    # --- 1. 数据获取与路径修正 ---
+    # 【修改】构建根目录下的文件路径
+    data_file_path = os.path.join(get_project_root(), "app_data.json")
+
+    # 【修改】检查文件是否存在（使用绝对路径）
+    if not os.path.exists(data_file_path):
+        st.warning("数据文件丢失，请先完成评估计算！")
+        print(f"【ERROR】文件不存在: {data_file_path}")
+        if st.button("返回评估"):
+            st.session_state.page = "audit_result"
+            st.rerun()
+        return
+
+    # 【修改】尝试读取文件
+    try:
+        with open(data_file_path, 'r', encoding='utf-8') as f:
+            app_data = json.load(f)
+        print("【RESULT】Report Page 成功读取 JSON:", data_file_path)
+    except Exception as e:
+        st.error(f"读取数据失败: {e}")
+        return
     project_info = app_data.get('project_info', {})
     audit_results = app_data.get('audit_results', {})
 
