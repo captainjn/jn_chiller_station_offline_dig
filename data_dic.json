@@ -35,7 +35,8 @@
                 "rated_head": 12.0,
                 "rated_power": 20.0,
                 "head": 11.0,
-                "power": 18.0
+                "power": 18.0,
+                "type": 0
             },
             {
                 "name": "新设备 2",
@@ -43,7 +44,8 @@
                 "rated_head": 12.0,
                 "rated_power": 20.0,
                 "head": 11.0,
-                "power": 17.0
+                "power": 17.0,
+                "type": 1
             }
         ],
         "towers": [
@@ -93,7 +95,8 @@
             "rated_head": 12.0,
             "rated_power": 20.0,
             "head": 11.0,
-            "power": 18.0
+            "power": 18.0,
+            "type": 0
         },
         {
             "name": "新设备 2",
@@ -101,7 +104,8 @@
             "rated_head": 12.0,
             "rated_power": 20.0,
             "head": 11.0,
-            "power": 17.0
+            "power": 17.0,
+            "type": 1
         }
     ],
     "towers": [

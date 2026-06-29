@@ -1,0 +1,10 @@
+{
+    "project_info": {
+        "project_name": "app_data",
+        "building_area": 10000,
+        "project_type": "retrofit",
+        "operation_hours_per_day": 10,
+        "operation_days_per_year": 180,
+        "project_id": "PROJ_1782293557"
+    }
+}
