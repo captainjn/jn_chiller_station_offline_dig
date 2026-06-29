@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_name": "北京_商业综合体_空调机房",
+    "building_area": 50000,
+    "design_cold_load": 3500,
+    "annual_days": 180,
+    "location": "北京市",
+    "assessment_date": "2026-06-22"
+  },
+  "equipment_params": {
+    "chillers": [
+      {
+        "type": "离心式",
+        "design_capacity": 1750,
+        "design_power": 350,
+        "actual_capacity": 1600,
+        "actual_power": 380
+      },
+      {
+        "type": "螺杆式",
+        "design_capacity": 1750,
+        "design_power": 400,
+        "actual_capacity": 1500,
+        "actual_power": 420
+      }
+    ],
+    "pumps": [
+      {
+        "type": "冷冻水泵",
+        "rated_flow": 300,
+        "rated_head": 32,
+        "actual_flow": 280,
+        "actual_head": 30
+      },
+      {
+        "type": "冷却水泵",
+        "rated_flow": 350,
+        "rated_head": 36,
+        "actual_flow": 320,
+        "actual_head": 34
+      }
+    ],
+    "cooling_towers": [
+      {
+        "type": "横流式冷却塔",
+        "design_approach": 3.5,
+        "actual_in_temp": 37,
+        "actual_out_temp": 32
+      }
+    ]
+  },
+  "operation_data": {
+    "total_power": 120000,
+    "cooling_output": 350000,
+    "load_distribution": {
+      "20": 10,
+      "40": 20,
+      "60": 30,
+      "80": 25,
+      "100": 15
+    }
+  }
+}

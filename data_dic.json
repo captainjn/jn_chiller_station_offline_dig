@@ -1,0 +1,141 @@
+{
+    "project_info": {
+        "project_name": "未命名项目",
+        "building_area": 10000,
+        "project_type": "retrofit",
+        "operation_hours_per_day": 10,
+        "operation_days_per_year": 180,
+        "project_id": "PROJ_1782293557",
+        "design_cold_load": 800
+    },
+    "equipment_params": {
+        "chillers": [
+            {
+                "name": "冷机 1",
+                "capacity": 1000,
+                "power": 200.0,
+                "rated_cooling_capacity": 1000.0,
+                "rated_power": 200.0,
+                "design_supply_temp": 7.0,
+                "design_return_temp": 12.0
+            },
+            {
+                "name": "新设备 2",
+                "rated_cooling_capacity": 1000.0,
+                "rated_power": 200.0,
+                "power": 230.0,
+                "design_supply_temp": 7.0,
+                "design_return_temp": 12.0
+            }
+        ],
+        "pumps": [
+            {
+                "name": "新设备 1",
+                "rated_flow": 460.0,
+                "rated_head": 12.0,
+                "rated_power": 20.0,
+                "head": 11.0,
+                "power": 18.0
+            },
+            {
+                "name": "新设备 2",
+                "rated_flow": 460.0,
+                "rated_head": 12.0,
+                "rated_power": 20.0,
+                "head": 11.0,
+                "power": 17.0
+            }
+        ],
+        "towers": [
+            {
+                "name": "新设备 1",
+                "rated_flow": 240.0,
+                "rated_power": 5.0,
+                "rated_approach_temp": 3.0,
+                "power": 5.1,
+                "inlet_temp": 35.0,
+                "outlet_temp": 32.0
+            },
+            {
+                "name": "新设备 2",
+                "rated_flow": 240.0,
+                "rated_power": 5.0,
+                "rated_approach_temp": 3.0,
+                "power": 0.0,
+                "inlet_temp": 35.0,
+                "outlet_temp": 32.0
+            }
+        ]
+    },
+    "chillers": [
+        {
+            "name": "冷机 1",
+            "capacity": 1000,
+            "power": 200.0,
+            "rated_cooling_capacity": 1000.0,
+            "rated_power": 200.0,
+            "design_supply_temp": 7.0,
+            "design_return_temp": 12.0
+        },
+        {
+            "name": "新设备 2",
+            "rated_cooling_capacity": 1000.0,
+            "rated_power": 200.0,
+            "power": 230.0,
+            "design_supply_temp": 7.0,
+            "design_return_temp": 12.0
+        }
+    ],
+    "pumps": [
+        {
+            "name": "新设备 1",
+            "rated_flow": 460.0,
+            "rated_head": 12.0,
+            "rated_power": 20.0,
+            "head": 11.0,
+            "power": 18.0
+        },
+        {
+            "name": "新设备 2",
+            "rated_flow": 460.0,
+            "rated_head": 12.0,
+            "rated_power": 20.0,
+            "head": 11.0,
+            "power": 17.0
+        }
+    ],
+    "towers": [
+        {
+            "name": "新设备 1",
+            "rated_flow": 240.0,
+            "rated_power": 5.0,
+            "rated_approach_temp": 3.0,
+            "power": 5.1,
+            "inlet_temp": 35.0,
+            "outlet_temp": 32.0
+        },
+        {
+            "name": "新设备 2",
+            "rated_flow": 240.0,
+            "rated_power": 5.0,
+            "rated_approach_temp": 3.0,
+            "power": 0.0,
+            "inlet_temp": 35.0,
+            "outlet_temp": 32.0
+        }
+    ],
+    "operation_data": {
+        "wet_bulb_temp": 26.1,
+        "total_cooling_load": 1900.0,
+        "total_flow": 200.0,
+        "supply_temp": 7.0,
+        "return_temp": 10.0,
+        "load_ratio_data": [
+            10,
+            20,
+            30,
+            25,
+            15
+        ]
+    }
+}
