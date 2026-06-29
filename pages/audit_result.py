@@ -20,6 +20,7 @@ def render():
         if st.button("⬅️ 返回上一页"):
                 st.session_state.page = "operation_data"
                 st.rerun()
+    st.markdown("### 点击下面一行选择分项对比")
     # 模拟计算结果 (实际应调用 core/calculator.py)
     # 这里使用模拟数据演示 UI
     current_cop = 3.5

@@ -25,8 +25,8 @@ def render():
     with col1:
         od['wet_bulb_temp'] = st.number_input("湿球温度（℃）", value=float(od.get('wet_bulb_temp', 26.1)),min_value=0.0, step=100.0)
     with col1:
-        od["total_cooling_load"] = st.number_input("系统实测总制冷量 (kW)", value=float(od.get('total_cooling_load', 1900)),min_value=0.0, step=100.0)
-        od['total_flow'] = st.number_input("实测冷冻水流量 (m³/h)", value=float(od.get('total_flow', 200)))
+        od["total_cooling_load"] = st.number_input("系统实测总制冷量 (kW)(必填)", value=float(od.get('total_cooling_load', 1900)),min_value=0.0, step=100.0)
+        od['total_flow'] = st.number_input("实测冷冻水流量 (m³/h)(选填)", value=float(od.get('total_flow', 200)))
         od['supply_temp'] = col2.number_input("实测供水温度 (℃)", value=float(od.get('supply_temp', 7)))
         od['return_temp'] = col2.number_input("实测回水温度 (℃)", value=float(od.get('return_temp', 10)))
     # 负荷率分布

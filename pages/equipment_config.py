@@ -7,12 +7,14 @@ DATA_FILE = "app_data.json"
 
 def render():
     st.title("🏭 设备参数配置")
+
     # --- 新增：顶部返回按钮 ---
     col1, col2 = st.columns([1, 10])
     with col1:
         if st.button("⬅️ 返回上一页"):
                 st.session_state.page = "project_config"
                 st.rerun()
+    st.markdown("### 点击下面一行选择设备类型，点击底部按钮继续")
     # --- 1. 安全加载数据 (核心修复点) ---
     # 初始化一个标准的默认结构，防止 KeyError
     default_structure = {
@@ -113,7 +115,7 @@ def _render_device_list(device_type, params_dict):
 
     # 允许用户动态增删设备
     num_devices = st.number_input(
-        f"{device_type} 数量",
+        f"{device_type} 数量（修改数字以增减台数，点击输入框下方生效）",
         min_value=0,
         max_value=10,
         value=len(devices),

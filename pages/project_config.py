@@ -171,6 +171,11 @@ def render():
                 min_value=0,
                 value=current_info.get("building_area", 10000)
             )
+            electricity_price = st.number_input(
+                "平均电价 (元/kWh)",
+                min_value=0,
+                value=current_info.get("electricity_price", 10)
+            )
 
         with col2:
             project_type = st.selectbox(
@@ -185,6 +190,7 @@ def render():
                 }.get(x, x),
                 index=0
             )
+
             op_hours = st.slider(
                 "日运行时间 (小时)",
                 min_value=0,
@@ -208,6 +214,7 @@ def render():
                 "project_type": project_type,
                 "operation_hours_per_day": op_hours,
                 "operation_days_per_year": op_days,
+                "electricity_price":electricity_price,
                 "project_id": current_info.get("project_id", f"PROJ_{int(time.time())}")
             }
 

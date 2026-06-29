@@ -18,10 +18,10 @@ print(str(DATA_DIR))
 WORKSPACE_FILE = DATA_DIR / "app_data.json"
 def render():
     st.title("🏠 项目概览")
-    st.markdown("### 欢迎使用空调机房优化运行平台")
+    st.markdown("### 欢迎使用空调机房运行优化预期效果评估工具")
 
     # 历史项目复用 (文档 3.2 交互设计原则)
-    st.sidebar.header("快速操作")
+    st.sidebar.header("快速开始")
     if st.sidebar.button("➕ 新建项目"):
         st.session_state.page = "project_info"
         st.rerun()
