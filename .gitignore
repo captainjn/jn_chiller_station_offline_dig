@@ -1,0 +1,22 @@
+# 1. 虚拟环境 (最重要：绝对不要把整个虚拟环境推上去，否则仓库会极其庞大)
+venv/
+env/
+.venv/
+ENV/
+
+# 2. Python 缓存和编译文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 3. 操作系统生成的隐藏文件
+.DS_Store
+Thumbs.db
+
+# 4. Streamlit 本地配置
+.streamlit/secrets.toml
+
+# 5. 敏感数据与运行时状态文件 (根据你的项目需求调整)
+# 如果你不希望把测试产生的数据上传，可以取消下面两行的注释：
+# data/app_data.json
+# data/*_info.json
