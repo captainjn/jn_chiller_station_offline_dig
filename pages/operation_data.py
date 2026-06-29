@@ -48,7 +48,7 @@ def render():
 
 
     # --- 阶段 2：按钮逻辑 ---
-    if st.button("🚀 开始评估", type="primary", width='stretch'):
+    if st.button("🚀 开始评估", type="primary", use_container_width=True):
         print("【STAGE 2】按钮被点击！")
         st.success("✅ 开始评估流程")
 
