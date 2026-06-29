@@ -2,7 +2,7 @@
 import streamlit as st
 from utils.report_generator import ReportGenerator
 from datetime import datetime
-
+import os
 def render():
     st.title("📑 节能评估报告生成")
     # --- 4. 导航 ---
@@ -28,6 +28,7 @@ def render():
 
     # 检查必要数据是否存在
     if not project_info or not audit_results:
+        print("当前目录下的文件列表：", os.listdir())
         st.warning("数据缺失，请先完成评估计算！")
         if st.button("返回评估"):
             st.session_state.page = "audit_result"
