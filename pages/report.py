@@ -5,6 +5,8 @@ from datetime import datetime
 import os
 def render():
     st.title("📑 节能评估报告生成")
+    print("【DEBUG】当前工作目录 (CWD):", os.getcwd())
+    print("【DEBUG】当前目录下的文件列表:", os.listdir())
     # --- 4. 导航 ---
     if st.button("⬅️ 返回上一页"):
         st.session_state.page = "audit_result"
