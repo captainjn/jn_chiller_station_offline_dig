@@ -32,7 +32,7 @@ class ProjectInfo:
     design_cold_load: float
     operation_hours_per_day: float
     operation_days_per_year: int
-
+    electricity_price:float
 
 @dataclass
 class EquipmentParams:
@@ -519,7 +519,8 @@ def trans_data1(page_data):
             project_type=proj_type,
             design_cold_load=page_data['project_info']["design_cold_load"],
             operation_hours_per_day=page_data['project_info']["operation_hours_per_day"],
-            operation_days_per_year=page_data['project_info']["operation_days_per_year"]
+            operation_days_per_year=page_data['project_info']["operation_days_per_year"],
+            electricity_price=page_data["project_info"]["electricity_price"]
         )
         print(page_data['equipment_params'])
         # 2. 转换设备参数
