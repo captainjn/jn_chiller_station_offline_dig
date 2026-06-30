@@ -14,7 +14,7 @@ def render():
         if st.button("⬅️ 返回上一页"):
                 st.session_state.page = "project_config"
                 st.rerun()
-    st.markdown("### 点击下面一行选择设备类型，点击底部按钮继续")
+    st.markdown("### 可在下一行选择设备类型，点击底部按钮进入下一步")
     # --- 1. 安全加载数据 (核心修复点) ---
     # 初始化一个标准的默认结构，防止 KeyError
     default_structure = {
@@ -94,7 +94,11 @@ def render():
                 all_data = {}
 
             # 2. 更新设备参数
+            print("====================equipment_config=======================")
+            current_project_info = all_data.get("project_info", {})
+            print(current_project_info)
             all_data["equipment_params"] = current_params
+            all_data["project_info"]=current_project_info
             # 注意：不要 touch all_data['project_info']，让它保持原样
 
             # 3. 写回
@@ -104,6 +108,7 @@ def render():
                 st.success("✅ 保存成功！")
                 # --- 新增：跳转逻辑 ---
                 st.session_state.page = "operation_data"
+                print(st)
                 st.rerun()
             except Exception as e:
                 st.error(f"❌ 保存失败: {e}")

@@ -610,7 +610,6 @@ def trans_data1(page_data):
         # 捕获数据转换异常，防止崩溃
         import traceback
         print(f"计算数据适配错误: {traceback.format_exc()}")
-        # 即使出错，也返回一个带有错误提示的结果，而不是抛出异常
         result = EvaluationResult(project_info=ProjectInfo("ERROR", "数据错误", 0, ProjectType.COMMERCIAL, 0, 0, 0))
         result.suggestions = [f"数据格式错误，请检查输入: {str(e)}"]
         return result

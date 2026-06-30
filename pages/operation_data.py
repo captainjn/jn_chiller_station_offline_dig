@@ -14,6 +14,7 @@ def render():
 
     # --- 阶段 1：表单渲染 ---
     print("【STAGE 1】页面渲染开始...")
+
     # --- 新增：顶部返回按钮 ---
     col1, col2 = st.columns([1, 10])
     with col1:
@@ -31,7 +32,7 @@ def render():
         od['return_temp'] = col2.number_input("实测回水温度 (℃)", value=float(od.get('return_temp', 10)))
     # 负荷率分布
     st.subheader("负荷率分布")
-    st.caption("请按 20% 分档填写各负荷区间的运行时间百分比")
+    st.caption("请按 20% 分档填写各负荷区间的运行时间百分比，总和为100%")
     load_20 = st.slider("0-20% 负荷占比 (%)", 0, 100, 10)
     load_40 = st.slider("20-40% 负荷占比 (%)", 0, 100, 20)
     load_60 = st.slider("40-60% 负荷占比 (%)", 0, 100, 30)
@@ -65,7 +66,8 @@ def render():
             with open(DATA_FILE, 'r', encoding='utf-8') as f:
                 all_data = json.load(f)
             print("【STAGE 3】数据读取成功，当前数据 Keys:", all_data.keys())
-
+            current_project_info = all_data.get("project_info", {})
+            print(current_project_info)
             # 2.3 更新数据
             all_data["operation_data"] = od
             print("【STAGE 4】数据更新完成，准备写入...")

@@ -10,7 +10,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)  # 确保 data 目录存在
 print(str(DATA_DIR))
 # 定义全局工作区文件 (用于当前运行时的缓存)
-WORKSPACE_FILE = DATA_DIR / "app_data.json"
+WORKSPACE_FILE = Path(__file__).resolve().parent.parent / "app_data.json"
 
 
 def get_all_project_files():
@@ -69,6 +69,9 @@ def save_project_data(project_info):
 
     # 2. 保存到工作区 (app_data.json)，供其他页面读取
     try:
+        print("----------===========------------")
+        print(project_info)
+        print(WORKSPACE_FILE)
         with open(WORKSPACE_FILE, 'w', encoding='utf-8') as f:
             json.dump({"project_info": project_info}, f, ensure_ascii=False, indent=4)
         # 更新 Session State
@@ -173,9 +176,10 @@ def render():
             )
             electricity_price = st.number_input(
                 "平均电价 (元/kWh)",
-                min_value=0,
-                value=current_info.get("electricity_price", 10)
+                min_value=0.,
+                value=current_info.get("electricity_price", 0.85)
             )
+
 
         with col2:
             project_type = st.selectbox(
@@ -206,6 +210,7 @@ def render():
 
         submit = st.form_submit_button("💾 保存并继续", type="primary")
 
+        print("electricity_price=",electricity_price)
         if submit:
             # 构建新数据
             new_project_info = {
